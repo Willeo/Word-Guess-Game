@@ -18,7 +18,6 @@ var answerArray = [];
 for (var i = 0; i < word.length; i++) {
     answerArray[i] = "_";
 }
-
 var remainingLetters = word.length;
 
 //check if the guess is correct
@@ -38,12 +37,18 @@ for (var j = 0; j < word.length; j++) {
 if (word[j] === guess) {
 answerArray[j] = guess;
 remainingLetters--;
-}
-}
+  }
+ }
 }
 alert(answerArray.join(" "));
 alert("Good job! The answer was " + word);
 
+var userText = document.getElementById("user-text");
+
+// Next, we give JavaScript a function to execute when onkeyup event fires.
+document.onkeyup = function(event) {
+userText.textContent = event.key;
+};
 
 
 
