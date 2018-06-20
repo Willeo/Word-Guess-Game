@@ -10,28 +10,26 @@ var words = [
 var word = words[Math.floor(Math.random() * words.length)];
 
 var score = 0;
-
+var simpsons;
 var userText;
-
-// select the word and created the answer array / underscores as required
+var hideTxt = word.length;
 var answerArray = [];
 for (var i = 0; i < word.length; i++) {
   answerArray[i] = "_";
-
-  // making the string and sending to the page
-  s = answerArray.join(" ");
-  document.getElementById("answer").innerHTML;
-}
-
-if (userText === answerArray) {
-  for (var i = 0; i < word.length; i++) {
-    answerArray[i] = textContent;
-  }
-
   document.getElementById("answer").innerHTML = answerArray.join(" ");
 }
 
-// Start the game confirmation
+// Take user's input and check if it's in the Array.
+while (hideTxt < 0) {
+  document.getElementById("answer").innerHTML = answerArray.join(" ");
+}
+
+for (var i = 0; i < word.length; i++) {
+  if (word[i] === userText) {
+    answerArray[i] = userText;
+  }
+}
+
 confirm("Wanna play??");
 
 // user input selection
