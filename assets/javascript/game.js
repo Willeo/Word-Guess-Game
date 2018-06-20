@@ -29,7 +29,6 @@ if (x === answerArray) {
     answerArray[i] = textContent;
   }
 
-  document.getElementById("score").innerHTML = "No of clicks: " + score;
   document.getElementById("answer").innerHTML = answerArray.join(" ");
 }
 
