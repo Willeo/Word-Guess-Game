@@ -1,46 +1,53 @@
-//The random words for the game.
 var words = [
-  "polygon",
-  "illustration",
-  "concept",
-  "sketch",
-  "triage",
-  "expectant",
-  "render"
+  "bart",
+  "milhouse",
+  "maggie",
+  "nelson",
+  "barnie",
+  "patty",
+  "flanders"
 ];
-
-// Pick a random word
 var word = words[Math.floor(Math.random() * words.length)];
-// Set up the answer array
+
+var s;
+var count = 0;
 var answerArray = [];
-for (var i = 0; i < word.length; i++) {
-  answerArray[i] = "_";
+var userText;
+
+// select the word and created the answer array / underscores as required
+function startUp() {
+  for (var i = 0; i < word.length; i++) {
+    answerArray[i] = "_";
+  }
+
+  // making the string and sending to the page
+  s = answerArray.join(" ");
+  document.getElementById("answer").innerHTML = s;
 }
 
-// display the "_" on to the page.
-var remainingLetters = word.length;
-document.getElementById("hits").innerHTML = answerArray.join(" ");
+// on key release run function to see if letter is in the array
+function letter() {
+  var letter = document.getElementById("userText");
 
-var answerArray = [];
-for (var i = 0; i < word.length; i++) {
-  answerArray[i] = "_";
+  if (userText > 0) {
+    for (var i = 0; i < word.length; i++) {
+      answerArray[i] = userText;
+    }
+    count++;
+    document.getElementById("counter").innerHTML = "No of clicks: " + count;
+    document.getElementById("answer").innerHTML = answerArray.join(" ");
+  }
+  if (count > 10) {
+    document.getElementById("stat").innerHTML = "tsk tsk tsk..";
+  }
 }
-// User's input or Guess. On key release
+// Start the game confirmation
+confirm("Wanna play");
 
+// user input selection
 var userText = document.getElementById("user-text");
 document.onkeyup = function(event) {
   userText.textContent = event.key;
 };
 
-// display the remaining letters
-var remainingLetters = word.length;
-document.getElementById("hits").innerHTML = answerArray.join(" ");
-
-// letters guessed correctly, update the Remaining letters display.
-for (var j = 0; j < word.length; j++) {
-  if (word[j] === userGuess) {
-    answerArray[j] = userGuess;
-    remainingLetters--;
-  }
-}
-// if letter wasn't guess correctly, display below.
+document.onkeypress = letter();
