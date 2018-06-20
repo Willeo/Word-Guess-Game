@@ -13,6 +13,7 @@ var s;
 var count = 0;
 var answerArray = [];
 var userText;
+//var x = event.which || event.keyCode;
 
 // select the word and created the answer array / underscores as required
 function startUp() {
@@ -27,11 +28,12 @@ function startUp() {
 
 // on key release run function to see if letter is in the array
 function letter() {
-  var letter = document.getElementById("userText");
+  //var letter = document.getElementById("userText");
 
-  if (userText > 0) {
+  //if (textContent > 0) { var x = event.which || event.keyCode;
+  if (x === answerArray) {
     for (var i = 0; i < word.length; i++) {
-      answerArray[i] = userText;
+      answerArray[i] = textContent;
     }
     count++;
     document.getElementById("counter").innerHTML = "No of clicks: " + count;
@@ -45,9 +47,12 @@ function letter() {
 confirm("Wanna play");
 
 // user input selection
-var userText = document.getElementById("user-text");
-document.onkeyup = function(event) {
-  userText.textContent = event.key;
-};
-
-document.onkeypress = letter();
+// var userText = document.getElementById("user-text");
+// document.onkeyup = function(event) {
+//   userText.textContent = event.key;
+//   letter();
+function myFunction(event) {
+  var x = event.key; // Get the Unicode value
+  var y = String.fromCharCode(x); // Convert the value into a character
+  document.getElementById("usertext").innerHTML = "You Guessed " + x + y;
+}
