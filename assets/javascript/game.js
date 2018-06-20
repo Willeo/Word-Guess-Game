@@ -12,7 +12,6 @@ var word = words[Math.floor(Math.random() * words.length)];
 var score = 0;
 
 var userText;
-//var x = event.which || event.keyCode;
 
 // select the word and created the answer array / underscores as required
 var answerArray = [];
@@ -24,7 +23,7 @@ for (var i = 0; i < word.length; i++) {
   document.getElementById("answer").innerHTML;
 }
 
-if (x === answerArray) {
+if (userText === answerArray) {
   for (var i = 0; i < word.length; i++) {
     answerArray[i] = textContent;
   }
@@ -39,5 +38,4 @@ confirm("Wanna play??");
 var userText = document.getElementById("user-text");
 document.onkeyup = function(event) {
   userText.textContent = event.key;
-  //   letter();
 };
