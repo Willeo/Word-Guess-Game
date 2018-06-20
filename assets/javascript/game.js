@@ -1,54 +1,46 @@
-
 //The random words for the game.
-var words = ["polygon",
-            "illustration" ,
-            "concept", 
-            "sketch", 
-            "triage",
-            "expectant",
-            "render" ];
+var words = [
+  "polygon",
+  "illustration",
+  "concept",
+  "sketch",
+  "triage",
+  "expectant",
+  "render"
+];
 
-var word = words[Math.floor(Math.random() * words.lenth)];
+// Pick a random word
+var word = words[Math.floor(Math.random() * words.length)];
+// Set up the answer array
+var answerArray = [];
+for (var i = 0; i < word.length; i++) {
+  answerArray[i] = "_";
+}
 
-
-//player guess
-var player_guess = 0;
+// display the "_" on to the page.
+var remainingLetters = word.length;
+document.getElementById("hits").innerHTML = answerArray.join(" ");
 
 var answerArray = [];
 for (var i = 0; i < word.length; i++) {
-    answerArray[i] = "_";
+  answerArray[i] = "_";
 }
-var remainingLetters = word.length;
-
-//check if the guess is correct
-while (remainingLetters > 0) {
-         answerArray.join(" ");
-}
-
-var guess = prompt("Guess a letter, or click Cancel to stop playing.");
-    if (guess === null) {
-// Exit the game loop
-        break;
-}  else if (guess.length !== 1) {
-alert("Please enter a single letter.");
-} else {
-// Update the game state with the guess
-for (var j = 0; j < word.length; j++) {
-if (word[j] === guess) {
-answerArray[j] = guess;
-remainingLetters--;
-  }
- }
-}
-alert(answerArray.join(" "));
-alert("Good job! The answer was " + word);
+// User's input or Guess. On key release
 
 var userText = document.getElementById("user-text");
-
-// Next, we give JavaScript a function to execute when onkeyup event fires.
 document.onkeyup = function(event) {
-userText.textContent = event.key;
+  userText.textContent = event.key;
 };
 
+// display the remaining letters
+var remainingLetters = word.length;
+document.getElementById("hits").innerHTML = answerArray.join(" ");
 
-
+// letters guessed correctly, update the Remaining letters display.
+for (var j = 0; j < word.length; j++) {
+  if (word[j] === userGuess) {
+    answerArray[j] = userGuess;
+    remainingLetters--;
+  }
+}
+// if letter wasn't guess correctly, display below.

@@ -6,38 +6,50 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Word Guess Game</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
-    <script src="assets/javascript/game.js" /></script>
 </head>
 
 <body>
-    <div>
+    <div class="container">
         <h1>Word guess Game</h1>
-    </div>
 
-    <div id="correct">
-        <h2>Hits!</h2>
-        <p id="hits"> </p>
-    </div>
 
-    <div id="word">
-        <h2>Take a guess...
-            <span id="user-text">
-                <strong>...Nothing.</strong>
-            </span>
-        </h2>
-    </div>
+        <div id="correct">
+            <h2>Hits!</h2>
+            <p id="hits">Guess this word</p>
+            <br>
+        </div>
 
-    <div id="remaining">
-        <p>you have </p>
-    </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-offset-2 col-md-8">
+                    <div class="jumbotron">
+                        <h2>You just typed
+                            <span id="user-text">
+                                <strong>...Nothing.</strong>
+                            </span>
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    <div id="incorrect">
-        <h3>wrong</h3>
-        <p>...so far, so good!</p>
-    </div>
+        <div id="remain">
 
+        </div>
+
+        <div id="incorrect">
+
+        </div>
+        <div id="win">
+
+        </div>
+    </div>
+    <!--endd container-->
 </body>
+<script src="assets/javascript/game.js" /></script>
 
 </html>
