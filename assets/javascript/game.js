@@ -15,6 +15,8 @@ var miss = 0;
 var missedArray = [];
 var remainingLetters = word.length;
 var answerArray = [];
+var audio = new Audio("./assets/doh1.mp3");
+
 confirm("Wanna play??");
 // selecting the name
 for (var i = 0; i < word.length; i++) {
@@ -53,8 +55,9 @@ document.onkeyup = function(event) {
       //alert("Game over");
       document.getElementById("loser").innerHTML = missedArray;
     }
-    if (miss === 15) {
-      alert("Game over");
+    if (miss === 7) {
+      audio.play();
+      alert("Game over! HA..HA..!");
     }
   }
 }; // end onkeyUp function
