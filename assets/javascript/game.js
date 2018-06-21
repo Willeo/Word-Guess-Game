@@ -37,17 +37,24 @@ document.onkeyup = function(event) {
       answerArray[i] = guess;
       remainingLetters--;
       document.getElementById("answer").innerHTML = answerArray.join(" ");
-    } // Winning condition
+    }
     if (remainingLetters == 0) {
       console.log("congrats you guessed it!!");
+      alert("congrats you guessed it!!");
       document.getElementById("loser").innerHTML = "Congrats!!!";
-    }
+    } // Winning condition
   } // bad guesses being pushed into an array
   if (guess !== word[i]) {
     console.log("strike");
+    miss++;
     document.getElementById("loser").innerHTML = missedArray.push(guess);
+    document.getElementById("score").innerHTML = miss;
     for (var i = 0; i < missedArray.length; i++) {
+      //alert("Game over");
       document.getElementById("loser").innerHTML = missedArray;
+    }
+    if (miss === 15) {
+      alert("Game over");
     }
   }
 }; // end onkeyUp function
